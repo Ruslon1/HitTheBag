@@ -9,8 +9,10 @@ using DG.Tweening.Plugins.Options;
 [RequireComponent(typeof(Slider))]
 public class PowerScale : MonoBehaviour
 {
-    [HideInInspector] public Slider Slider { get; private set; }
+    public Slider Slider { get; private set; }
+    
     private TweenerCore<float, float, FloatOptions> _basicChanges;
+    
     private void Start()
     {
         Slider = GetComponent<Slider>();
@@ -25,5 +27,10 @@ public class PowerScale : MonoBehaviour
     public void StopSliderChanges()
     {
         _basicChanges?.Kill();
+    }
+
+    public void DisableSlider()
+    {
+        gameObject.SetActive(false);
     }
 }
